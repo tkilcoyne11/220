@@ -9,11 +9,11 @@ I certify that this assignment is entirely my own work
 """
 
 def main():
-    annual_interest_rate = float(input("Enter the annual interest rate: "))
-    days_in_billing_cycle = float(input("Enter number of days in the billing cycle: "))
-    previous_net_balance = float(input("Enter the previous net balance: "))
-    payment_amount = float(input("Enter the payment amount: "))
-    payment_day = float(input("Enter the day in which the payment was made: "))
+    annual_interest_rate = eval(input("Enter the annual interest rate: "))
+    days_in_billing_cycle = eval(input("Enter number of days in the billing cycle: "))
+    previous_net_balance = eval(input("Enter the previous net balance: "))
+    payment_amount = eval(input("Enter the payment amount: "))
+    payment_day = eval(input("Enter the day in which the payment was made: "))
     step1 = previous_net_balance * days_in_billing_cycle
     step2 = payment_amount * (days_in_billing_cycle - payment_day)
     step3 = step1 - step2
