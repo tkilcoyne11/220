@@ -1,10 +1,11 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Tucker Kilcoyne
+lab4.py
 """
 
 from graphics import *
 import math
+
 
 def squares():
     """  <---  You can use tripled quotes to write a multi-line comment....
@@ -86,6 +87,7 @@ def rectangle():
     win.getMouse()
     win.close()
 
+
 def circle():
 
     # Create graphical window
@@ -111,14 +113,15 @@ def circle():
     win.getMouse()
     win.close()
 
+
 def pi2():
     n = eval(input("Enter n: "))
     acc = 0
     for i in range(n):
         num = 4
         den = 1 + 2 * i
-        frac = (num/den) * ((-1) ** i)
-        acc += frac
+        fraction = (num/den) * ((-1) ** i)
+        acc += fraction
     print(acc)
     print(math.pi - acc)
 
@@ -130,7 +133,5 @@ def main():
     pi2()
 
 
-main()
-
-
-
+if __name__ == '__main__':
+    main()

@@ -3,6 +3,7 @@ Name: Tucker Kilcoyne
 lab3.py
 """
 
+
 def average():
     inputs = []
     data = int(input("Enter the number of grades to input: "))
@@ -12,12 +13,14 @@ def average():
     average = sum(inputs) / len(inputs)
     print(round(average,2))
 
+
 def tip_jar():
     acc = 0
     for i in range(5):
         donation = float(input("Enter how much you are donating? "))
         acc += donation
     print(acc)
+
 
 def newton():
     x = int(input("Enter what the number x is: "))
@@ -27,13 +30,15 @@ def newton():
         approx = (approx + (x / approx)) / 2
     print(approx)
 
+
 def sequence():
     x = int(input("Enter how many terms in a series: "))
     for i in range(1, x+1):
         y = 1 + (i // 2 * 2)
-        print(y)
+        print(y, end=" ")
     # // - integer division ex: 5//2 = 2
     # % - remainder division ex: 5%2 = 1
+
 
 def pi():
     n = int(input("Enter the number of terms in the series: "))
@@ -44,8 +49,14 @@ def pi():
         acc *= (num/demon)
     print(acc * 2)
 
-#average()
-#tip_jar()
-#newton()
-#sequence()
-#pi()
+
+def main():
+    # average()
+    # tip_jar()
+    # newton()
+    sequence()
+    # pi()
+
+
+if __name__ == '__main__':
+    main()

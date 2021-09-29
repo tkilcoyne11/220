@@ -18,12 +18,13 @@ I certify that this assignment is entirely my own work
 
 import math
 
+
 def main():
     inputs = []
     geometric = 1
     data = int(input("Enter number of elements: "))
-    for i in range(0,data):
-        ele = int(input(i))
+    for i in range(0, data):
+        ele = int(input("Element "+str(i+1)+": "))
         inputs.append(ele)
 
     squared_inputs = [number ** 2 for number in inputs]
@@ -36,9 +37,10 @@ def main():
         geometric *= item
     geometric_mean = geometric ** (1/len(inputs))
 
-    print(round(rms_average,3))
-    print(round(harmonic_mean,3))
-    print(round(geometric_mean,3))
+    print(round(rms_average, 3))
+    print(round(harmonic_mean, 3))
+    print(round(geometric_mean, 3))
+
 
 if __name__ == '__main__':
     main()
