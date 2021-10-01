@@ -5,15 +5,18 @@ Problem: Create a graphical greeting card
 Certificate of Authenticity
 I certify that this assignment is entirely my own work
 """
-from graphics import *
+import time
+from graphics import GraphWin, Rectangle, Point, Text, Image, Line
+
+# needed to create function create_window inorder to conform to length of statements and variables test
 
 
-def main():
+def create_window():
 
     # Set up the window
     width = 500
     height = 600
-    win = GraphWin("Greeting Card", width, height,)
+    win = GraphWin("Greeting Card", width, height)
     win.setBackground("#CBC3E3")
     win.setCoords(0, 0, 50, 60)
 
@@ -22,6 +25,15 @@ def main():
     greet_box.setFill("#FFC0CB")
     greet_box.setOutline("white")
     greet_box.draw(win)
+    return win
+
+# This is main function
+
+
+def main():
+
+    # Create the window
+    win = create_window()
 
     # Greeting text
     greet = Text(Point(25, 50), "Happy Valentine's Day!")
@@ -55,38 +67,13 @@ def main():
     heart.undraw()
     line.undraw()
 
-    img1 = Image(Point(25, 30), "img1.gif")
-    img1.draw(win)
-    time.sleep(0.15)
-    img1.undraw()
+    for i in range(1, 7):
+        img = Image(Point(25, 30), "img" + str(i) + ".gif")
+        img.draw(win)
+        time.sleep(0.15)
+        img.undraw()
 
-    img2 = Image(Point(25, 30), "img2.gif")
-    img2.draw(win)
-    time.sleep(0.15)
-    img2.undraw()
-
-    img3 = Image(Point(25, 30), "img3.gif")
-    img3.draw(win)
-    time.sleep(0.15)
-    img3.undraw()
-
-    img4 = Image(Point(25, 30), "img4.gif")
-    img4.draw(win)
-    time.sleep(0.15)
-    img4.undraw()
-
-    img5 = Image(Point(25, 30), "img5.gif")
-    img5.draw(win)
-    time.sleep(0.15)
-    img5.undraw()
-
-    img6 = Image(Point(25, 30), "img6.gif")
-    img6.draw(win)
-    time.sleep(0.15)
-    img6.undraw()
-
-    img7 = Image(Point(25, 30), "img7.gif")
-    img7.draw(win)
+    Image(Point(25, 30), "img7.gif").draw(win)
     time.sleep(0.25)
 
     # Box for message
