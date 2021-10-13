@@ -47,6 +47,8 @@ def code(message, keyword):
     encode_text = Text(Point(25, 22.5), "Encode")
     encode_text.draw(win)
 
+    keyword_text_box.getText()
+
     win.getMouse()
     win.close()
 
