@@ -61,8 +61,8 @@ def encode_better():
 
 
 def main():
-    # cash_conversion()
-    # encode()
+    cash_conversion()
+    encode()
     print(
         sphere_area(5),
         sphere_volume(5),
