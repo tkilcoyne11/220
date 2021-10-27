@@ -123,7 +123,7 @@ def pi2():
         fraction = (num/den) * ((-1) ** i)
         acc += fraction
     print(acc)
-    print(math.pi - acc)
+    print(math.pi - acc)w
 
 
 def main():
