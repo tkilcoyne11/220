@@ -6,7 +6,7 @@ vigenere.py
 from graphics import GraphWin, Point, Text, Entry, Rectangle
 
 
-def code():
+def code(message, keyword):
 
     window_width = 500
     window_height = 400
