@@ -1,6 +1,6 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Tucker Kilcoyne
+lab9.py
 """
 
 from graphics import GraphWin, Point, Circle, Text
