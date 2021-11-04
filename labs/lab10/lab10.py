@@ -1,6 +1,6 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Tucker Kilcoyne
+lab10.py
 """
 
 
@@ -50,7 +50,7 @@ def isWon(board, piece):
         if board[4] == piece:
             if board[8] == piece:
                 return True
-    if board[3] == piece:
+    if board[2] == piece:
         if board[4] == piece:
             if board[6] == piece:
                 return True
