@@ -1,35 +1,33 @@
 """
-Name: Tucker Kilcoyne
+Tucker Kilcoyne
 bumper.py
-Certification of Authenticity
-I certify that this assignment is entirely my own work
 """
 
-import math
-import time
 from random import randint
 from graphics import GraphWin, Circle, Point, color_rgb
 
 
 def get_random(move_amount):
-    return randint(-move_amount, +move_amount)
+    return randint(-move_amount, move_amount)
 
 
 def did_collide(ball1, ball2):
-    distance = math.sqrt((ball1.getCenter().getX() - ball2.getCenter().getX()) ** 2
-                         + (ball1.getCenter().getY() - ball2.getCenter().getY()) ** 2)
-    return bool(distance <= (ball1.getRadius() + ball2.getRadius()))
+    x_collide = abs(ball1.getCenter().getX() - ball2.getCenter().getX())
+    y_collide = abs(ball1.getCenter().getY() - ball2.getCenter().getY())
+    radius1 = ball1.getRadius()
+
+    return bool(x_collide <= radius1 and y_collide <= radius1)
 
 
-def hit_vertical(circle, win):
-    top = circle.getCenter().getY() + circle.getRadius() >= float(win.getHeight())
-    bottom = circle.getCenter().getY() - circle.getRadius() <= 0
+def hit_horizontal(ball, win):
+    top = ball.getCenter().getY() - ball.getRadius() <= 0
+    bottom = ball.getCenter().getY() + ball.getRadius() >= win.getHeight()
     return bool(top or bottom)
 
 
-def hit_horizontal(circle, win):
-    left = circle.getCenter().getX() - circle.getRadius() <= 0
-    right = circle.getCenter().getX() + circle.getRadius() >= float(win.getWidth())
+def hit_vertical(ball, win):
+    left = ball.getCenter().getX() + ball.getRadius() >= win.getWidth()
+    right = ball.getCenter().getX() - ball.getRadius() <= 0
     return bool(left or right)
 
 
@@ -42,47 +40,44 @@ def get_random_color():
 
 
 def bumper():
-    width = 500
-    height = 500
-    win = GraphWin("bumper", width, height)
+    win = GraphWin("Bumper", 600, 600)
 
-    circle1 = Circle(Point(width/2 - 50, height/2), 30)
-    circle2 = Circle(Point(width/2 + 50, height/2), 30)
+    circle1 = Circle(Point(100, 200), 30)
     circle1.setFill(get_random_color())
+    circle2 = Circle(Point(400, 500), 30)
     circle2.setFill(get_random_color())
+
     circle1.draw(win)
     circle2.draw(win)
 
-    dx1 = get_random(10)
-    dy1 = get_random(10)
-    dx2 = get_random(10)
-    dy2 = get_random(10)
+    movement1 = [get_random(9), get_random(9)]
+    movement2 = [get_random(9), get_random(9)]
 
-    done = False
-    while not done:
-        key = win.checkKey()
-        if key == 'q':
-            done = True
-        circle1.move(dx1, dy1)
-        circle2.move(dx2, dy2)
+    while True:
+
+        if did_collide(circle1, circle2):
+            movement1[0] = -movement1[0]
+            movement1[1] = -movement1[1]
+            movement2[0] = -movement2[0]
+            movement2[1] = -movement2[1]
+
+        if hit_vertical(circle1, win):
+            movement1[0] = -movement1[0]
         if hit_horizontal(circle1, win):
-            dx1 = -dx1
-        elif hit_horizontal(circle2, win):
-            dx2 = -dx2
-        elif hit_vertical(circle1, win):
-            dy1 = -dy1
-        elif hit_vertical(circle2, win):
-            dy2 = -dy2
-        elif did_collide(circle1, circle2):
-            dx1 = -dx1
-            dy1 = -dy1
-            dx2 = -dx2
-            dy2 = -dy2
-        time.sleep(0.01)
+            movement1[1] = -movement1[1]
+
+        if hit_vertical(circle2, win):
+            movement2[0] = -movement2[0]
+        if hit_horizontal(circle2, win):
+            movement2[1] = -movement2[1]
+
+        circle1.move(movement1[0], movement1[1])
+        circle2.move(movement2[0], movement2[1])
 
 
 def main():
     bumper()
+
 
 
 if __name__ == '__main__':
