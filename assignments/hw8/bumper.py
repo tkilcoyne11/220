@@ -15,7 +15,6 @@ def did_collide(ball1, ball2):
     x_collide = abs(ball1.getCenter().getX() - ball2.getCenter().getX())
     y_collide = abs(ball1.getCenter().getY() - ball2.getCenter().getY())
     radius1 = ball1.getRadius()
-
     return bool(x_collide <= radius1 and y_collide <= radius1)
 
 
