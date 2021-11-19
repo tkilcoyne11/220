@@ -39,12 +39,12 @@ def guessLetters(secret_word, guessed_word, guessed_letters):
         for i in guessed_letters:
             if letter == i:
                 print("This letter has already been guessed, try again:")
-                letter = input("Guess a letter")
+                letter = input("Guess a letter: ")
                 letter.lower()
                 check = False
         if (len(letter) != 1) or not (ord(letter) >= 97 and ord(letter) <= 122):
             print("This is an invalid entry, try again.")
-            letter = input("Guess a letter")
+            letter = input("Guess a letter: ")
             letter = letter.lower()
             check = False
     if guessedWord(secret_word, guessed_word, letter, guessed_letters):
@@ -59,12 +59,12 @@ def wordSpell(guessed_word, secret_word):
 
 
 def printBoard(guess_word, turn_count, guessed_letters):
-    print("----------------------------------------------")
+    print("------------------------------------------------")
     print("Guessed word: ", guess_word)
     print()
     print("Turn count:", turn_count)
     print("Guessed letters:", guessed_letters)
-    print("----------------------------------------------")
+    print("------------------------------------------------")
 
 
 def playGame():
@@ -76,7 +76,7 @@ def playGame():
     while turn_count < 7 and not wordSpell(guessed_word, secret_word):
         if guessLetters(secret_word, guessed_word, guessed_letters) == False:
             turn_count += 1
-            printBoard(guessed_word, turn_count, guessed_letters)
+            # printBoard(guessed_word, turn_count, guessed_letters)
         printBoard(guessed_word, turn_count, guessed_letters)
     if turn_count >= 7:
         print("Game is over! You Lose!")
