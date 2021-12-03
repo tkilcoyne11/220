@@ -20,7 +20,7 @@ class SalesForce:
             variables = i.split(",")
             employee = SalesPerson(int(variables[0]), variables[1])
             for j in variables[2].split():
-                employee.enter_sales(float(j))
+                employee.enter_sale(float(j))
             self.sales_people.append(employee)
 
     def quota_report(self, quota):

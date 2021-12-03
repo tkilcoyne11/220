@@ -23,7 +23,7 @@ class SalesPerson:
     def set_name(self, name):
         self.name = name
 
-    def enter_sales(self, sale):
+    def enter_sale(self, sale):
         self.sales.append(float(sale))
 
     def total_sales(self):
