@@ -13,13 +13,11 @@ def cash_conversion():
     print("$"+y)
 
 
-def encode():
-    s = str(input("Enter the string: "))
-    key = eval(input("Enter the key: "))
+def encode(s, key):
     acc = ""
     for c in s:
         acc += chr((ord(c) - 97 + key) % 26 + 97)
-    print(acc)
+    return acc
 
 
 def sphere_area(radius):
@@ -46,9 +44,7 @@ def sum_n_cubes(n):
     return acc
 
 
-def encode_better():
-    s = input("Enter a string: ")
-    k = input("Enter a key: ")
+def encode_better(s, k):
     acc = ""
     for i in range(len(s)):
         c = ord(s[i])
@@ -57,7 +53,7 @@ def encode_better():
         c = c + key
         new_c = chr(c)
         acc += new_c
-    print(acc)
+    return acc
 
 
 def main():
