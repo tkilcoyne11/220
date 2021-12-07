@@ -54,7 +54,7 @@ def send_message(file, friend):
 
 def send_safe_message(file, friend, key):
     infile = open(file, "r")
-    outfile = open(friend + ",txt", "w")
+    outfile = open(friend + ".txt", "w")
 
     for i in infile:
         new_line = encode(i, key)
